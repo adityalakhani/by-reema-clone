@@ -20,12 +20,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-piano-gold rounded-full flex items-center justify-center">
-              <span className="text-piano-dark font-serif text-xl font-bold">R</span>
+          <Link to="/" className="flex items-center space-x-3 hover-glow">
+            <div className="w-12 h-12 bg-piano-gold rounded-full flex items-center justify-center shadow-elegant">
+              <span className="text-piano-dark font-display text-xl font-bold">R</span>
             </div>
             <div>
-              <div className="font-serif text-piano-dark text-lg font-semibold tracking-wider">
+              <div className="font-display text-piano-dark text-lg font-semibold tracking-wider">
                 PIANO BY REEMA
               </div>
             </div>
@@ -37,9 +37,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-sans text-sm font-medium tracking-wider transition-colors hover:text-piano-gold ${
+                className={`nav-link font-sans text-sm font-medium tracking-wider transition-colors ${
                   location.pathname === item.path
-                    ? "text-piano-gold"
+                    ? "text-piano-gold active"
                     : "text-piano-dark"
                 }`}
               >

@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   // Placeholder images - in a real app these would be actual photos
   const galleryImages = [
@@ -48,8 +53,8 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-warm">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl font-bold text-piano-dark mb-6">Gallery</h1>
-          <p className="text-xl text-piano-dark/70 max-w-3xl mx-auto">
+          <h1 className={`font-display text-5xl font-bold text-piano-dark mb-6 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>Gallery</h1>
+          <p className="text-xl text-piano-dark/70 max-w-3xl mx-auto animate-slide-in-up delayed-animation">
             Explore our beautiful learning environment and see our students in action
           </p>
         </div>
@@ -59,21 +64,22 @@ const Gallery = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image) => (
+            {galleryImages.map((image, index) => (
               <div
                 key={image.id}
-                className="group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
+                className={`group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift animate-scale-in`}
+                style={{animationDelay: `${index * 0.1}s`}}
                 onClick={() => setSelectedImage(image.src)}
               >
                 <div className="relative">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-piano-gold/0 group-hover:bg-piano-gold/20 transition-colors duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-piano-dark/80 to-transparent p-4">
-                    <h3 className="text-piano-cream font-serif text-lg font-semibold">
+                  <div className="absolute inset-0 bg-piano-gold/0 group-hover:bg-piano-gold/20 transition-colors duration-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-piano-dark/80 to-transparent p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-piano-cream font-display text-lg font-semibold">
                       {image.title}
                     </h3>
                   </div>
@@ -87,18 +93,18 @@ const Gallery = () => {
       {/* Modal for enlarged image */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-piano-dark/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-piano-dark/90 z-50 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-4xl max-h-full">
+          <div className="relative max-w-4xl max-h-full animate-scale-in">
             <img
               src={selectedImage}
               alt="Enlarged view"
-              className="max-w-full max-h-full rounded-lg"
+              className="max-w-full max-h-full rounded-lg shadow-elegant"
             />
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-piano-cream hover:text-piano-gold text-2xl"
+              className="absolute top-4 right-4 text-piano-cream hover:text-piano-gold text-3xl transition-colors duration-300 hover:scale-110 transform"
             >
               ×
             </button>
@@ -108,11 +114,11 @@ const Gallery = () => {
 
       {/* Call to Action */}
       <section className="py-20 bg-piano-dark text-piano-cream">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-serif text-3xl font-bold mb-6">
+        <div className="container mx-auto px-4 text-center animate-fade-in-up">
+          <h2 className="font-display text-3xl font-bold mb-6">
             Ready to Create Your Own Musical Journey?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-8 opacity-90 animate-slide-in-left delayed-animation">
             Join our community of passionate musicians and discover your potential
           </p>
         </div>
