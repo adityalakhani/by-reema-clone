@@ -30,7 +30,7 @@ const Contact = () => {
                 <CardContent className="p-0">
                   <form className="space-y-6">
                     <div>
-                      <label className="block text-sm font-medium text-piano-dark mb-2">
+                      <label className="block text-sm font-normal text-piano-dark mb-2">
                         Full Name
                       </label>
                       <Input 
@@ -40,7 +40,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-piano-dark mb-2">
+                      <label className="block text-sm font-normal text-piano-dark mb-2">
                         Email Address
                       </label>
                       <Input 
@@ -50,7 +50,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-piano-dark mb-2">
+                      <label className="block text-sm font-normal text-piano-dark mb-2">
                         Phone Number
                       </label>
                       <Input 
@@ -60,7 +60,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-piano-dark mb-2">
+                      <label className="block text-sm font-normal text-piano-dark mb-2">
                         Message
                       </label>
                       <Textarea 
@@ -96,7 +96,7 @@ const Contact = () => {
                         <p className="text-piano-dark/70 mb-2">Call us for immediate assistance</p>
                         <a 
                           href="tel:+917827444093" 
-                          className="text-piano-gold hover:text-piano-warm transition-colors font-medium"
+                          className="text-piano-gold hover:text-piano-warm transition-colors font-normal"
                         >
                           +91 7827444093
                         </a>
@@ -118,7 +118,7 @@ const Contact = () => {
                         <p className="text-piano-dark/70 mb-2">Send us your questions anytime</p>
                         <a 
                           href="mailto:info@pianobyreema.com" 
-                          className="text-piano-gold hover:text-piano-warm transition-colors font-medium"
+                          className="text-piano-gold hover:text-piano-warm transition-colors font-normal"
                         >
                           info@pianobyreema.com
                         </a>
@@ -138,7 +138,7 @@ const Contact = () => {
                           Location
                         </h3>
                         <p className="text-piano-dark/70 mb-2">Visit our beautiful studio</p>
-                        <p className="text-piano-gold font-medium">
+                        <p className="text-piano-gold font-normal">
                           Delhi, India
                         </p>
                       </div>
@@ -157,7 +157,7 @@ const Contact = () => {
                           Hours
                         </h3>
                         <p className="text-piano-dark/70 mb-2">We're here to help</p>
-                        <div className="text-piano-gold font-medium">
+                        <div className="text-piano-gold font-normal">
                           <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
                           <p>Sunday: 10:00 AM - 6:00 PM</p>
                         </div>

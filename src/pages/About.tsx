@@ -14,16 +14,16 @@ const About = () => {
         </div>
       </section>
 
-      {/* About SaaaReeeSUR Section */}
+      {/* About Raama Music School Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-serif text-4xl font-bold text-piano-dark mb-8 text-center">
-              About SaaaReeeSUR
+              About Raama Music School
             </h2>
             <div className="text-lg text-piano-dark/80 leading-relaxed space-y-6">
               <p>
-                At SaaaReeeSUR, we offer exceptional piano instruction for all age groups, from beginners to 
+                At Raama Music School, we offer exceptional piano instruction for all age groups, from beginners to 
                 advanced students. Our team of highly skilled instructors, each with around 8 years of 
                 experience, is dedicated to fostering a love for music and helping students achieve their 
                 musical goals.
@@ -34,7 +34,7 @@ const About = () => {
                 techniques with modern approaches, making learning both engaging and effective.
               </p>
               <p>
-                Whether you're starting your musical journey or looking to refine your skills, SaaaReeeSUR 
+                Whether you're starting your musical journey or looking to refine your skills, Raama Music School 
                 provides a supportive and inspiring environment to nurture your talent and passion for piano.
               </p>
             </div>

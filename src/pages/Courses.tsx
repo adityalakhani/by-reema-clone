@@ -91,7 +91,7 @@ const Courses = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-serif text-5xl font-bold text-piano-dark mb-6">Our Courses</h1>
           <p className="text-xl text-piano-dark/70 max-w-3xl mx-auto">
-            Unlock your musical potential with SaaaReeeSUR's comprehensive piano courses designed for all skill levels
+            Unlock your musical potential with Raama Music School's comprehensive piano courses designed for all skill levels
           </p>
         </div>
       </section>
@@ -163,7 +163,7 @@ const Courses = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-serif text-4xl font-bold text-piano-dark mb-8">
-              Why Choose SaaaReeeSUR?
+              Why Choose Raama Music School?
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (

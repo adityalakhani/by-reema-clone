@@ -1,32 +1,33 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Star, Users, Award, Heart, Music, BookOpen } from "lucide-react";
-import pianoHero from "@/assets/piano-hero.jpg";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Star, Users, Award, Heart, Music, BookOpen, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import carousel_one from "@/assets/IMG_9591.jpg";
+import carousel_two from "@/assets/20.jpg";
+import carousel_three from "@/assets/96.jpg";
 
 const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const reviews = [
+  const carouselSlides = [
     {
-      name: "Raman",
-      text: "SaaaReeeSUR offers top-notch piano instruction. The instructor is experienced and patient."
+      title: "RAAMA MUSIC SCHOOL",
+      subtitle: "MUSIC IS THE ULTIMATE BLISS",
+      description: "Where every note tells a story and every lesson ignites your musical journey.",
+      bgImage: carousel_one
     },
     {
-      name: "Nisha Sethi", 
-      text: "My child's piano skills have improved tremendously thanks to SaaaReeeSUR's excellent teaching methods."
+      title: "TRANSFORM YOUR DREAMS",
+      subtitle: "INNOVATIVE MUSIC EDUCATION",
+      description: "Transform your musical dreams into reality with our innovative and inspiring music education.",
+      bgImage: carousel_two
     },
     {
-      name: "Komal",
-      text: "A great place for music lovers. Highly recommended for anyone looking to learn piano."
-    },
-    {
-      name: "Priyanka",
-      text: "The personalized lessons really helped me progress at my own pace. Thank you, SaaaReeeSUR!"
+      title: "UNLOCK YOUR POTENTIAL",
+      subtitle: "PASSION & EXPERTISE",
+      description: "Unlock your musical potential with Raama Music School, where passion and expertise drive every lesson.",
+      bgImage: carousel_three
     }
   ];
 
@@ -63,47 +64,247 @@ const Home = () => {
     }
   ];
 
+  const reviews = [
+    {
+      name: "Raman",
+      text: "Raama Music School offers top-notch piano instruction. The instructor is experienced and patient.",
+      rating: 5
+    },
+    {
+      name: "Nisha Sethi", 
+      text: "My child's piano skills have improved tremendously thanks to Raama Music School's excellent teaching methods.",
+      rating: 5
+    },
+    {
+      name: "Komal",
+      text: "A great place for music lovers. Highly recommended for anyone looking to learn piano.",
+      rating: 5
+    },
+    {
+      name: "Priyanka",
+      text: "The personalized lessons really helped me progress at my own pace. Thank you, Raama Music School!",
+      rating: 5
+    }
+  ];
+
+  // Auto-advance carousel
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, carouselSlides.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section 
-        className="h-screen flex items-center justify-center relative bg-cover bg-center parallax"
-        style={{ backgroundImage: `url(${pianoHero})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-hero"></div>
-        <div className={`relative z-10 text-center text-piano-cream transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="flex justify-center mb-6 animate-slide-in-left">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 fill-piano-gold text-piano-gold float-animation" style={{animationDelay: `${i * 0.1}s`}} />
-            ))}
+    <div className="min-h-screen overflow-hidden">
+      {/* Hero Carousel Section */}
+      <section className="relative h-screen w-full overflow-hidden">
+        {/* Contact Info Sidebar - Left Side */}
+        <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
+          <div className="bg-piano-dark/95 backdrop-blur-md text-piano-cream py-8 px-6 rounded-r-2xl shadow-2xl border-r-4 border-piano-gold">
+            <div className="space-y-8">
+              <div className="group cursor-pointer">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1">
+                    <Phone className="w-5 h-5 text-piano-gold group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-piano-cream/60 font-sans mb-1">
+                      Call Us
+                    </p>
+                    <a 
+                      href="tel:+917827444093" 
+                      className="text-sm font-normal hover:text-piano-gold transition-colors block leading-tight"
+                    >
+                      +91 7827444093
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="h-px bg-piano-gold/20"></div>
+
+              <div className="group cursor-pointer">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1">
+                    <Mail className="w-5 h-5 text-piano-gold group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-piano-cream/60 font-sans mb-1">
+                      Email
+                    </p>
+                    <a 
+                      href="mailto:info@saaareesur.com" 
+                      className="text-sm font-normal hover:text-piano-gold transition-colors block leading-tight break-all"
+                    >
+                      info@saaareesur.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="h-px bg-piano-gold/20"></div>
+
+              <div className="group cursor-pointer">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1">
+                    <MapPin className="w-5 h-5 text-piano-gold group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-piano-cream/60 font-sans mb-1">
+                      Location
+                    </p>
+                    <p className="text-sm font-normal leading-tight">
+                      Delhi, India
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="font-sans text-sm tracking-widest mb-4 opacity-90 animate-slide-in-right hero-text">
-            UNIQUE PLACE TO RELAX & ENJOY
-          </p>
-          <h1 className="font-display text-6xl md:text-7xl font-bold mb-8 leading-tight hero-text animate-fade-in-up">
-            THE PERFECT BASE<br />FOR YOU
-          </h1>
-          <div className="animate-scale-in delayed-animation-3">
-            <Button variant="hero" size="xl" className="btn-pulse hover-lift">
-              CONFIRM YOUR SEAT
-            </Button>
-          </div>
+        </div>
+
+        {/* Carousel Slides */}
+        <div className="relative h-full w-full">
+          {carouselSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-all duration-[1500ms] ease-in-out ${
+                currentSlide === index 
+                  ? 'opacity-100 z-10 scale-100' 
+                  : 'opacity-0 z-0 scale-105'
+              }`}
+            >
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ 
+                  backgroundImage: `url(${slide.bgImage})`,
+                  backgroundPosition: 'center center',
+                  backgroundSize: 'cover',
+                  transform: currentSlide === 2 ? 'translateY(70px)' : 'none',
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+              </div>
+
+              {/* Slide Content */}
+              <div className="relative h-full flex items-center justify-center px-4">
+                <div className="text-center text-white max-w-5xl mx-auto">
+                  {/* Star Rating */}
+                  <div 
+                    className={`flex justify-center gap-2 mb-6 transition-all duration-1000 delay-300 ${
+                      currentSlide === index 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 -translate-y-4'
+                    }`}
+                  >
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className="w-6 h-6 fill-piano-gold text-piano-gold"
+                        style={{ animationDelay: `${i * 100}ms` }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Subtitle */}
+                  <p 
+                    className={`font-sans text-xs md:text-sm tracking-[0.3em] uppercase mb-6 text-piano-cream/90 transition-all duration-1000 delay-500 ${
+                      currentSlide === index 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 -translate-y-4'
+                    }`}
+                  >
+                    {slide.subtitle}
+                  </p>
+
+                  {/* Main Title */}
+                  <h1 
+                    className={`font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 leading-[1.1] text-white transition-all duration-1000 delay-700 ${
+                      currentSlide === index 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.5)' }}
+                  >
+                    {slide.title}
+                  </h1>
+
+                  {/* Description */}
+                  <p 
+                    className={`text-lg md:text-xl lg:text-2xl mb-10 text-piano-cream/95 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-900 ${
+                      currentSlide === index 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-4'
+                    }`}
+                  >
+                    {slide.description}
+                  </p>
+
+                  {/* CTA Button */}
+                  <div 
+                    className={`transition-all duration-1000 delay-1100 ${
+                      currentSlide === index 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-4'
+                    }`}
+                  >
+                    <Button 
+                      variant="gold" 
+                      size="xl"
+                      className="font-sans tracking-wider shadow-2xl hover:shadow-piano-gold/50 hover:scale-105 transition-all duration-300"
+                    >
+                      CONNECT NOW
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Carousel Dots Navigation */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
+          {carouselSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`transition-all duration-500 rounded-full ${
+                currentSlide === index 
+                  ? 'w-12 h-3 bg-piano-gold shadow-lg shadow-piano-gold/50' 
+                  : 'w-3 h-3 bg-white/50 hover:bg-white/80 hover:scale-125'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
       {/* What We Do Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-24 bg-gradient-to-b from-piano-cream to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="font-display text-4xl font-bold text-piano-dark mb-6">What we do</h2>
-            <div className="max-w-4xl mx-auto text-piano-dark/80 text-lg leading-relaxed">
-              <p className="mb-6 animate-slide-in-left delayed-animation">
-                At SaaaReeeSUR, we offer exceptional piano instruction for all age groups, from beginners to 
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-5xl font-bold text-piano-dark mb-8">
+              What we do
+            </h2>
+            <div className="max-w-4xl mx-auto text-piano-dark/80 text-lg leading-relaxed space-y-6">
+              <p className="text-justify md:text-center">
+                At Raama Music School, we offer exceptional piano instruction for all age groups, from beginners to 
                 advanced students. Our team of highly skilled instructors, each with around 8 years of 
                 experience, is dedicated to fostering a love for music and helping students achieve their 
                 musical goals.
               </p>
-              <p className="animate-slide-in-right delayed-animation-2">
+              <p className="text-justify md:text-center">
                 We provide personalized lessons tailored to individual needs and skill levels, ensuring that 
                 each student progresses at their own pace. Our comprehensive curriculum combines classical 
                 techniques with modern approaches, making learning both engaging and effective.
@@ -111,34 +312,45 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto text-center bg-piano-cream/50 rounded-lg p-8 shadow-soft hover-glow animate-scale-in delayed-animation-3">
-            <p className="text-piano-dark text-lg leading-relaxed">
-              Reema Gupta is a musician & pianist who has been teaching piano for over 10 years. Her 
-              vision is to create a music course where each individual can discover their musical 
-              personality and enhance it with her guidance. She offers students the opportunity to sit for 
-              international exams like Trinity and ABRSM, providing a clear vision of their musical 
-              journey upon completion of the grades.
-            </p>
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-white/80 backdrop-blur shadow-elegant border-piano-gold/20">
+              <CardContent className="p-10">
+                <p className="text-piano-dark text-lg leading-relaxed text-center">
+                  <strong className="font-serif text-xl text-piano-gold">Reema Gupta</strong> is a musician & pianist who has been teaching piano for over 10 years. Her 
+                  vision is to create a music course where each individual can discover their musical 
+                  personality and enhance it with her guidance. She offers students the opportunity to sit for 
+                  international exams like <strong>Trinity</strong> and <strong>ABRSM</strong>, providing a clear vision of their musical 
+                  journey upon completion of the grades.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="font-display text-4xl font-bold text-piano-dark mb-4">Our Services</h2>
-            <p className="text-xl text-piano-dark/70">At Piano by reema</p>
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-5xl font-bold text-piano-dark mb-4">
+              Our Services
+            </h2>
+            <p className="text-xl text-piano-dark/70 font-sans tracking-wide">
+              At RAAMA MUSIC SCHOOL
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className={`service-card text-center p-6 hover:shadow-elegant transition-all animate-fade-in-up`} style={{animationDelay: `${index * 0.1}s`}}>
+              <Card 
+                key={index} 
+                className="group text-center p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-transparent hover:border-piano-gold/30 bg-gradient-to-br from-white to-piano-cream/30"
+              >
                 <CardContent className="p-0">
-                  <div className="w-16 h-16 bg-piano-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
-                    <service.icon className="service-icon w-8 h-8 text-piano-gold" />
+                  <div className="w-20 h-20 bg-gradient-to-br from-piano-gold/20 to-piano-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                    <service.icon className="w-10 h-10 text-piano-gold group-hover:text-piano-warm transition-colors" />
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-piano-dark mb-3">
+                  <h3 className="font-serif text-2xl font-semibold text-piano-dark mb-4 group-hover:text-piano-gold transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-piano-dark/70 leading-relaxed">
@@ -152,26 +364,31 @@ const Home = () => {
       </section>
 
       {/* Client Reviews Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-24 bg-gradient-to-b from-piano-cream to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="font-display text-4xl font-bold text-piano-dark mb-4">Client Reviews</h2>
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-5xl font-bold text-piano-dark mb-4">
+              Client Reviews
+            </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {reviews.map((review, index) => (
-              <Card key={index} className={`p-6 hover-lift animate-slide-in-${index % 2 === 0 ? 'left' : 'right'}`} style={{animationDelay: `${index * 0.2}s`}}>
+              <Card 
+                key={index} 
+                className="p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 bg-white border-l-4 border-piano-gold"
+              >
                 <CardContent className="p-0">
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-piano-gold text-piano-gold float-animation" style={{animationDelay: `${i * 0.1}s`}} />
+                  <div className="flex gap-1 mb-5">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-piano-gold text-piano-gold" />
                     ))}
                   </div>
-                  <p className="text-piano-dark/80 mb-4 italic">
+                  <p className="text-piano-dark/80 mb-6 italic text-lg leading-relaxed">
                     "{review.text}"
                   </p>
-                  <p className="font-semibold text-piano-dark">
-                    {review.name}
+                  <p className="font-semibold text-piano-dark text-lg font-serif">
+                    — {review.name}
                   </p>
                 </CardContent>
               </Card>
@@ -181,19 +398,27 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-piano-dark text-piano-cream parallax">
-        <div className="container mx-auto px-4 text-center animate-fade-in-up">
-          <h2 className="font-display text-4xl font-bold mb-6">
-            Piano by reema | MUSIC IS THE ULTIMATE BLISS
+      <section className="py-24 bg-gradient-to-br from-piano-dark via-piano-dark to-black text-piano-cream relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,215,0,0.3) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
+            RAAMA MUSIC SCHOOL | MUSIC IS THE ULTIMATE BLISS
           </h2>
-          <p className="text-xl mb-8 opacity-90 animate-slide-in-left delayed-animation">
+          <p className="text-xl md:text-2xl mb-10 text-piano-cream/90 max-w-3xl mx-auto">
             Where every note tells a story and every lesson ignites your musical journey.
           </p>
-          <div className="animate-scale-in delayed-animation-2">
-            <Button variant="gold" size="xl" className="hover-lift btn-pulse">
-              Book Your Lesson Today
-            </Button>
-          </div>
+          <Button 
+            variant="gold" 
+            size="xl"
+            className="font-sans tracking-wider shadow-2xl hover:shadow-piano-gold/50 hover:scale-110 transition-all duration-300"
+          >
+            Book Your Lesson Today
+          </Button>
         </div>
       </section>
     </div>

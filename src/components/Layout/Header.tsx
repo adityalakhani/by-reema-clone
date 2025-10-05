@@ -26,7 +26,7 @@ const Header = () => {
             </div>
             <div>
               <div className="font-display text-piano-dark text-lg font-semibold tracking-wider">
-                PIANO BY REEMA
+                Raama Music School
               </div>
             </div>
           </Link>
@@ -37,9 +37,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`nav-link font-sans text-sm font-medium tracking-wider transition-colors ${
+                className={`nav-link font-sans text-sm font-normal tracking-wider transition-colors ${
                   location.pathname === item.path
-                    ? "text-piano-gold active"
+                    ? "header-gold active"
                     : "text-piano-dark"
                 }`}
               >
@@ -54,7 +54,7 @@ const Header = () => {
             <Phone className="w-4 h-4" />
             <a 
               href="tel:+917827444093" 
-              className="text-sm font-medium hover:text-piano-gold transition-colors"
+              className="text-sm font-normal hover:text-piano-gold transition-colors"
             >
               917827444093
             </a>
@@ -83,7 +83,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`block font-sans text-sm font-medium tracking-wider transition-colors hover:text-piano-gold ${
+                  className={`block font-sans text-sm font-normal tracking-wider transition-colors hover:text-piano-gold ${
                     location.pathname === item.path
                       ? "text-piano-gold"
                       : "text-piano-dark"
@@ -98,7 +98,7 @@ const Header = () => {
                   <Phone className="w-4 h-4" />
                   <a 
                     href="tel:+917827444093" 
-                    className="text-sm font-medium hover:text-piano-gold transition-colors"
+                    className="text-sm font-normal hover:text-piano-gold transition-colors"
                   >
                     +91 7827444093
                   </a>
