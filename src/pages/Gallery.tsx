@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import pianoHero from "@/assets/piano-hero.jpg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -8,7 +10,7 @@ const Gallery = () => {
     setIsVisible(true);
   }, []);
 
-  // Placeholder images - in a real app these would be actual photos
+  // Gallery images
   const galleryImages = [
     {
       id: 1,
@@ -49,39 +51,46 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className={`font-display text-5xl font-bold text-piano-dark mb-6 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>Gallery</h1>
-          <p className="text-xl text-piano-dark/70 max-w-3xl mx-auto animate-slide-in-up delayed-animation">
+    <div className="min-h-screen ">
+      {/* Hero Section with Background */}
+      <section 
+        className="relative py-32 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${pianoHero})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-piano-dark/90 via-piano-dark/70 to-piano-dark/50"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className={`font-serif text-5xl md:text-6xl  text-white mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            Gallery
+          </h1>
+          <p className={`text-xl md:text-2xl text-white/90 max-w-3xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Explore our beautiful learning environment and see our students in action
           </p>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div
                 key={image.id}
-                className={`group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift animate-scale-in`}
-                style={{animationDelay: `${index * 0.1}s`}}
+                className={`group cursor-pointer overflow-hidden rounded-lg shadow-soft hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 stagger-animation`}
+                style={{animationDelay: `${index * 150}ms`}}
                 onClick={() => setSelectedImage(image.src)}
               >
-                <div className="relative">
+                <div className="relative overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-piano-gold/0 group-hover:bg-piano-gold/20 transition-colors duration-500"></div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-piano-dark/80 to-transparent p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-piano-cream font-display text-lg font-semibold">
+                  <div className="absolute inset-0 bg-gradient-to-t from-piano-dark/90 via-piano-dark/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-white font-serif text-xl font-semibold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                       {image.title}
                     </h3>
+                    <div className="w-12 h-1 bg-piano-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></div>
                   </div>
                 </div>
               </div>
@@ -93,18 +102,18 @@ const Gallery = () => {
       {/* Modal for enlarged image */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-piano-dark/90 z-50 flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 bg-piano-dark/95 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-4xl max-h-full animate-scale-in">
             <img
               src={selectedImage}
               alt="Enlarged view"
-              className="max-w-full max-h-full rounded-lg shadow-elegant"
+              className="max-w-full max-h-full rounded-lg shadow-2xl"
             />
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-piano-cream hover:text-piano-gold text-3xl transition-colors duration-300 hover:scale-110 transform"
+              className="absolute -top-4 -right-4 w-12 h-12 bg-piano-gold text-piano-dark rounded-full flex items-center justify-center text-2xl  hover:scale-110 hover:rotate-90 transition-all duration-300 shadow-lg"
             >
               ×
             </button>
@@ -113,14 +122,27 @@ const Gallery = () => {
       )}
 
       {/* Call to Action */}
-      <section className="py-20 bg-piano-dark text-piano-cream">
-        <div className="container mx-auto px-4 text-center animate-fade-in-up">
-          <h2 className="font-display text-3xl font-bold mb-6">
+      <section className="py-24 bg-gradient-to-br from-piano-dark via-piano-dark to-black text-piano-cream relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,215,0,0.3) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10 animate-fade-in-up">
+          <h2 className="font-serif text-4xl md:text-5xl  mb-6">
             Ready to Create Your Own Musical Journey?
           </h2>
-          <p className="text-xl mb-8 opacity-90 animate-slide-in-left delayed-animation">
+          <p className="text-xl md:text-2xl mb-10 text-piano-cream/90 max-w-3xl mx-auto">
             Join our community of passionate musicians and discover your potential
           </p>
+          <Button
+            variant="gold"
+            size="xl"
+            className="font-sans tracking-wider shadow-2xl hover:shadow-piano-gold/50 hover:scale-110 transition-all duration-300"
+          >
+            Book Your Lesson Today
+          </Button>
         </div>
       </section>
     </div>

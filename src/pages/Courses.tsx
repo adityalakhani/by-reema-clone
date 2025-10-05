@@ -85,11 +85,11 @@ const Courses = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-warm">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl font-bold text-piano-dark mb-6">Our Courses</h1>
+          <h1 className="font-serif text-5xl  text-piano-dark mb-6">Our Courses</h1>
           <p className="text-xl text-piano-dark/70 max-w-3xl mx-auto">
             Unlock your musical potential with Raama Music School's comprehensive piano courses designed for all skill levels
           </p>
@@ -112,7 +112,7 @@ const Courses = () => {
                     </Badge>
                   </div>
                   
-                  <h3 className="font-serif text-2xl font-bold text-piano-dark mb-3">
+                  <h3 className="font-serif text-2xl  text-piano-dark mb-3">
                     {course.title}
                   </h3>
                   
@@ -120,7 +120,7 @@ const Courses = () => {
                     {course.description}
                   </p>
 
-                  <div className="flex items-center gap-4 mb-4 text-sm text-piano-dark/60">
+                  <div className="flex items-center gap-4 mb-4 text-[15px] text-piano-dark/60">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       {course.duration}
@@ -145,7 +145,7 @@ const Courses = () => {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-2xl font-bold text-piano-gold">{course.price}</span>
+                      <span className="text-2xl  text-piano-gold">{course.price}</span>
                     </div>
                     <Button variant="gold">
                       Enroll Now
@@ -162,7 +162,7 @@ const Courses = () => {
       <section className="py-20 bg-gradient-warm">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-serif text-4xl font-bold text-piano-dark mb-8">
+            <h2 className="font-serif text-4xl  text-piano-dark mb-8">
               Why Choose Raama Music School?
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -181,7 +181,7 @@ const Courses = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-serif text-4xl font-bold text-piano-dark mb-8">
+            <h2 className="font-serif text-4xl  text-piano-dark mb-8">
               International Exam Preparation
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -220,7 +220,7 @@ const Courses = () => {
       {/* CTA Section */}
       <section className="py-20 bg-piano-dark text-piano-cream">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-serif text-4xl font-bold mb-6">
+          <h2 className="font-serif text-4xl  mb-6">
             Ready to Start Your Musical Journey?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">

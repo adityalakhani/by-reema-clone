@@ -1,11 +1,25 @@
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { name: "HOME", path: "/" },
@@ -16,16 +30,22 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-piano-cream/90 backdrop-blur-sm">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      isScrolled ? 'bg-piano-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover-glow">
-            <div className="w-12 h-12 bg-piano-gold rounded-full flex items-center justify-center shadow-elegant">
-              <span className="text-piano-dark font-display text-xl font-bold">R</span>
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-elegant transition-all duration-500 ${
+              isScrolled ? 'bg-piano-gold' : 'bg-piano-gold'
+            }`}>
+              <span className="text-piano-dark font-display text-xl ">R</span>
             </div>
             <div>
-              <div className="font-display text-piano-dark text-lg font-semibold tracking-wider">
+              <div className={`font-display text-lg font-semibold tracking-wider transition-colors duration-500 ${
+                isScrolled ? 'text-piano-cream' : 'text-white'
+              }`}>
                 Raama Music School
               </div>
             </div>
@@ -37,10 +57,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`nav-link font-sans text-sm font-normal tracking-wider transition-colors ${
+                className={`nav-link font-sans text-[15px] font-normal tracking-wider transition-colors duration-300 ${
                   location.pathname === item.path
-                    ? "header-gold active"
-                    : "text-piano-dark"
+                    ? "text-piano-gold active"
+                    : isScrolled ? "text-piano-cream hover:text-piano-gold" : "text-white hover:text-piano-gold"
                 }`}
               >
                 {item.name}
@@ -49,12 +69,14 @@ const Header = () => {
           </nav>
 
           {/* Desktop Phone number */}
-          <div className="hidden lg:flex items-center space-x-2 text-piano-dark">
+          <div className={`hidden lg:flex items-center space-x-2 transition-colors duration-300 ${
+            isScrolled ? 'text-piano-cream' : 'text-white'
+          }`}>
             <div className="text-xs font-sans">RESERVATION</div>
             <Phone className="w-4 h-4" />
             <a 
               href="tel:+917827444093" 
-              className="text-sm font-normal hover:text-piano-gold transition-colors"
+              className="text-[15px] font-normal hover:text-piano-gold transition-colors"
             >
               917827444093
             </a>
@@ -68,25 +90,25 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-piano-dark" />
+              <X className={`h-6 w-6 transition-colors ${isScrolled ? 'text-piano-cream' : 'text-white'}`} />
             ) : (
-              <Menu className="h-6 w-6 text-piano-dark" />
+              <Menu className={`h-6 w-6 transition-colors ${isScrolled ? 'text-piano-cream' : 'text-white'}`} />
             )}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-piano-cream/95 backdrop-blur-sm border-t border-piano-light">
+          <div className="md:hidden bg-piano-dark/95 backdrop-blur-sm border-t border-piano-light">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`block font-sans text-sm font-normal tracking-wider transition-colors hover:text-piano-gold ${
+                  className={`block font-sans text-[15px] font-normal tracking-wider transition-colors hover:text-piano-gold ${
                     location.pathname === item.path
                       ? "text-piano-gold"
-                      : "text-piano-dark"
+                      : "text-piano-cream"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -94,11 +116,11 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-4 border-t border-piano-light">
-                <div className="flex items-center space-x-2 text-piano-dark">
+                <div className="flex items-center space-x-2 text-piano-cream">
                   <Phone className="w-4 h-4" />
                   <a 
                     href="tel:+917827444093" 
-                    className="text-sm font-normal hover:text-piano-gold transition-colors"
+                    className="text-[15px] font-normal hover:text-piano-gold transition-colors"
                   >
                     +91 7827444093
                   </a>
