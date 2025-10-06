@@ -8,20 +8,20 @@ const About = () => {
     <div className="min-h-screen ">
       {/* Hero Section with Background Image */}
       <section
-        className="relative h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden"
+        className="relative h-[500px] w-full bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{ backgroundImage: `url(${bg_one})` }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
-          <h1 className="font-serif text-5xl md:text-6xl text-white mb-6 animate-fade-in-up">
+        <div className="container mx-auto px-40 h-full flex flex-col justify-center items-start text-left relative z-10 space-y-4">
+          <p className="text-xl md:text-xl text-white max-w-2xl font-light animate-fade-in-up delayed-animation leading-relaxed tracking-[6px]">
+            THE MUSIC IS THE BLISS
+          </p>
+          <h1 className="font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 animate-fade-in-up tracking-[6px]">
             About Us
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delayed-animation leading-relaxed">
-            Transform your musical dreams into reality with our innovative and inspiring music education.
-          </p>
         </div>
       </section>
 

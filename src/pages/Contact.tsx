@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm h-screen w-full"
+      <section className="py-20 bg-gradient-warm h-[600px] w-full"
         style={{ backgroundImage: `url(${bg_one})` }}
       >
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
@@ -74,7 +74,17 @@ const Contact = () => {
                         className="w-full"
                       />
                     </div>
-                    <Button variant="gold" size="lg" className="w-full">
+                    <Button variant="gold" size="lg" className="
+                    relative overflow-hidden text-white bg-[#ab8a62] 
+                    px-[22px] py-[13px] text-[15px] tracking-[3px]
+                    transition-all duration-700 ease-in-out transform
+                    hover:bg-white hover:text-[#ab8a62] hover:scale-110
+
+                    before:content-[''] before:absolute before:inset-0
+                    before:bg-white before:origin-left before:scale-x-0
+                    before:transition-transform before:duration-700
+                    hover:before:scale-x-100 before:opacity-20
+                    ">
                       Send Message
                     </Button>
                   </form>
@@ -122,10 +132,10 @@ const Contact = () => {
                         </h3>
                         <p className="text-piano-dark/70 mb-2">Send us your questions anytime</p>
                         <a
-                          href="mailto:info@pianobyreema.com"
+                          href="mailto:raamusic2025@gmail.com"
                           className="text-piano-gold hover:text-piano-warm transition-colors font-normal"
                         >
-                          info@pianobyreema.com
+                          raamusic2025@gmail.com
                         </a>
                       </div>
                     </div>
