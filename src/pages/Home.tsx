@@ -5,8 +5,9 @@ import { Star, Users, Award, Heart, Music, BookOpen, Phone, Mail, MapPin } from 
 import carousel_one from "@/assets/IMG_9591.jpg";
 import carousel_two from "@/assets/20.jpg";
 import carousel_three from "@/assets/62.jpg";
-import carousel_four from '@/assets/96.jpg';
+import carousel_four from '@/assets/IMG_9923.jpg';
 import carousel_five from '@/assets/66.jpg';
+import carousel_six from '@/assets/DSC05481.jpg';
 import collage_one from '@/assets/IMG_9740.jpg';
 import collage_two from '@/assets/IMG_9944.jpg';
 import collage_three from '@/assets/67.jpg';
@@ -177,7 +178,12 @@ const Home = () => {
               <div className="h-px bg-piano-gold/20"></div>
 
               <div className="group cursor-pointer">
-                <div className="flex items-start gap-3">
+                <a
+                  href="https://www.google.com/maps/place/28%C2%B040'03.0%22N+77%C2%B007'15.9%22E/@28.667486,77.1185056,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3"
+                >
                   <div className="mt-1">
                     <MapPin className="w-5 h-5 text-piano-gold group-hover:scale-110 transition-transform" />
                   </div>
@@ -185,11 +191,14 @@ const Home = () => {
                     <p className="text-[10px] uppercase tracking-widest text-piano-cream/60 font-sans mb-1">
                       Location
                     </p>
-                    <p className="text-[15px] font-normal leading-tight">
-                      Delhi, India
+                    <p className="text-[15px] font-normal leading-tight group-hover:text-piano-gold transition-colors">
+                      9/13, Punjabi Bagh West
+                    </p>
+                    <p className="text-[15px] font-normal leading-tight group-hover:text-piano-gold transition-colors">
+                      New Delhi, India
                     </p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -324,8 +333,9 @@ const Home = () => {
               What we do
             </h2>
 
-            <div className="grid md:grid-cols-12 gap-8 items-start">
-              {/* Left (8 columns) – Text in a hover card */}
+            {/* Top row: text + tall image */}
+            <div className="grid md:grid-cols-12 gap-8 items-start mb-8">
+              {/* Left: Text block */}
               <div className="md:col-span-8">
                 <Card className="bg-white/80 backdrop-blur shadow-elegant border-piano-gold/20 hover:shadow-2xl transition-all duration-500 h-full">
                   <CardContent className="p-8 md:p-10">
@@ -341,28 +351,28 @@ const Home = () => {
                 </Card>
               </div>
 
-              {/* Right (4 columns) – 3 images in split layout */}
-              <div className="md:col-span-4 flex flex-col space-y-4">
-                <div className="w-full">
-                  <img
-                    src={carousel_four}
-                    alt="Lesson photo"
-                    className="rounded-lg shadow-lg object-cover h-[250px] w-full"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <img
-                    src={carousel_five}
-                    alt="Recital photo"
-                    className="rounded-lg shadow-lg object-cover h-[150px] w-full"
-                  />
-                  <img
-                    src={carousel_three}
-                    alt="Student practice"
-                    className="rounded-lg shadow-lg object-cover h-[150px] w-full"
-                  />
-                </div>
+              {/* Right: Tall image */}
+              <div className="md:col-span-4">
+                <img
+                  src={carousel_four}
+                  alt="Lesson photo"
+                  className="shadow-lg object-cover w-full h-[400px]"
+                />
               </div>
+            </div>
+
+            {/* Bottom row: Two images full width */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <img
+                src={carousel_six}
+                alt="Recital photo"
+                className="shadow-lg object-cover w-[900px] h-[500px]"
+              />
+              <img
+                src={carousel_three}
+                alt="Student practice"
+                className="shadow-lg object-cover w-[700px] h-[500px]"
+              />
             </div>
           </div>
         </div>
@@ -373,9 +383,9 @@ const Home = () => {
         <div className="grid md:grid-cols-2 gap-0">
           {/* Top Left - Large image with overlay text */}
           <div className="relative h-[500px] group overflow-hidden">
-            <img 
-              src={collage_one} 
-              alt="Piano recital" 
+            <img
+              src={collage_one}
+              alt="Piano recital"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -401,9 +411,9 @@ const Home = () => {
 
           {/* Top Right - Image with text overlay */}
           <div className="relative h-[500px] group overflow-hidden">
-            <img 
-              src={collage_two} 
-              alt="Piano event" 
+            <img
+              src={collage_two}
+              alt="Piano event"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -411,9 +421,9 @@ const Home = () => {
 
           {/* Bottom Left - Image */}
           <div className="relative h-[500px] group overflow-hidden">
-            <img 
-              src={collage_three} 
-              alt="Music performance" 
+            <img
+              src={collage_three}
+              alt="Music performance"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -439,9 +449,9 @@ const Home = () => {
 
           {/* Bottom Right - Image with text overlay */}
           <div className="relative h-[500px] group overflow-hidden">
-            <img 
-              src={collage_four} 
-              alt="Music education India" 
+            <img
+              src={collage_four}
+              alt="Music education India"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>

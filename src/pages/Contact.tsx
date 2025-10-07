@@ -142,22 +142,28 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="p-6">
+                <Card className="p-6 hover:shadow-2xl transition-shadow">
                   <CardContent className="p-0">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-piano-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-6 h-6 text-piano-gold" />
+                    <a
+                      href="https://www.google.com/maps/place/28%C2%B040'03.0%22N+77%C2%B007'15.9%22E/@28.667486,77.1185056,17z"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start space-x-4 group"
+                    >
+                      <div className="w-12 h-12 bg-piano-gold/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-piano-gold/20 transition-colors">
+                        <MapPin className="w-6 h-6 text-piano-gold group-hover:scale-110 transition-transform" />
                       </div>
                       <div>
-                        <h3 className="font-serif text-xl font-semibold text-piano-dark mb-2">
+                        <h3 className="font-serif text-xl font-semibold text-piano-dark mb-2 group-hover:text-piano-gold transition-colors">
                           Location
                         </h3>
                         <p className="text-piano-dark/70 mb-2">Visit our beautiful studio</p>
-                        <p className="text-piano-gold font-normal">
+                        <p className="text-piano-gold font-normal flex items-center gap-1">
                           Delhi, India
+                          {/* <ExternalLink className="w-4 h-4" /> */}
                         </p>
                       </div>
-                    </div>
+                    </a>
                   </CardContent>
                 </Card>
 
@@ -190,7 +196,7 @@ const Contact = () => {
       <section className="py-20 bg-gradient-warm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl  text-piano-dark mb-4">
+            <h2 className="font-serif text-3xl text-piano-dark mb-4">
               Find Our Studio
             </h2>
             <p className="text-piano-dark/70">
@@ -198,11 +204,17 @@ const Contact = () => {
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden shadow-2xl">
               <CardContent className="p-0">
-                <div className="h-64 bg-piano-light flex items-center justify-center">
-                  <p className="text-piano-dark/70">Interactive Map Coming Soon</p>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3501.3826157654744!2d77.1185056!3d28.667486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDQwJzAzLjAiTiA3N8KwMDcnMTUuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  width="1000"
+                  height="400"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Raama Music School Location"
+                ></iframe>
               </CardContent>
             </Card>
           </div>

@@ -2,8 +2,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Award, Music, Users, Heart } from "lucide-react";
 import bg_one from "@/assets/56.jpg";
 import ReemaGupta from "@/assets/ReemaGupta.jpg";
+import { useEffect, useState } from "react";
 
 const About = () => {
+
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setAnimate(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen ">
       {/* Hero Section with Background Image */}
@@ -11,15 +20,22 @@ const About = () => {
         className="relative h-[500px] w-full bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{ backgroundImage: `url(${bg_one})` }}
       >
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
 
-        {/* Content */}
         <div className="container mx-auto px-40 h-full flex flex-col justify-center items-start text-left relative z-10 space-y-4">
-          <p className="text-xl md:text-xl text-white max-w-2xl font-light animate-fade-in-up delayed-animation leading-relaxed tracking-[6px]">
+          <p
+            className={`text-xl md:text-xl text-white max-w-2xl font-light leading-relaxed tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            style={{ transitionDelay: "100ms" }}
+          >
             THE MUSIC IS THE BLISS
           </p>
-          <h1 className="font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 animate-fade-in-up tracking-[6px]">
+
+          <h1
+            className={`font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            style={{ transitionDelay: "300ms" }}
+          >
             About Us
           </h1>
         </div>
