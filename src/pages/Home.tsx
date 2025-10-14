@@ -166,10 +166,10 @@ const Home = () => {
                       Email
                     </p>
                     <a
-                      href="mailto:raamusic2025@gmail.com"
+                      href="mailto:raamamusic2025@gmail.com"
                       className="text-[15px] font-normal hover:text-piano-gold transition-colors block leading-tight break-all"
                     >
-                      raamusic2025@gmail.com
+                      raamamusic2025@gmail.com
                     </a>
                   </div>
                 </div>

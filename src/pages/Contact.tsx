@@ -132,10 +132,10 @@ const Contact = () => {
                         </h3>
                         <p className="text-piano-dark/70 mb-2">Send us your questions anytime</p>
                         <a
-                          href="mailto:raamusic2025@gmail.com"
+                          href="mailto:raamamusic2025@gmail.com"
                           className="text-piano-gold hover:text-piano-warm transition-colors font-normal"
                         >
-                          raamusic2025@gmail.com
+                          raamamusic2025@gmail.com
                         </a>
                       </div>
                     </div>

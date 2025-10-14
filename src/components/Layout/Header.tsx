@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const location = useLocation();
@@ -37,10 +38,14 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover-glow">
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-elegant transition-all duration-500 ${
-              isScrolled ? 'bg-piano-gold' : 'bg-piano-gold'
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center overflow-hidden shadow-elegant transition-all duration-500 ${
+              isScrolled ? 'bg-white' : 'bg-white'
             }`}>
-              <span className="text-piano-dark font-display text-xl ">R</span>
+              <img 
+                src={logo} 
+                alt="Raama Music School Logo" 
+                className="w-full h-full object-contain p-1 scale-125"
+              />
             </div>
             <div>
               <div className={`font-display text-lg font-semibold tracking-wider transition-colors duration-500 ${

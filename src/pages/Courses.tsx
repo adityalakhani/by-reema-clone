@@ -19,7 +19,6 @@ const Courses = () => {
       title: "Beginner Piano Course",
       duration: "3 months",
       level: "Beginner",
-      price: "₹8,000/month",
       description: "Perfect for those starting their musical journey. Learn basic techniques, note reading, and simple melodies.",
       features: [
         "Basic piano techniques",
@@ -34,7 +33,6 @@ const Courses = () => {
       title: "Intermediate Piano Course",
       duration: "6 months",
       level: "Intermediate",
-      price: "₹10,000/month",
       description: "Build upon your foundation with more complex pieces, advanced techniques, and music theory.",
       features: [
         "Advanced playing techniques",
@@ -49,7 +47,6 @@ const Courses = () => {
       title: "Advanced Piano Course",
       duration: "12 months",
       level: "Advanced",
-      price: "₹12,000/month",
       description: "Master advanced repertoire, develop your musical personality, and prepare for professional performance.",
       features: [
         "Advanced classical repertoire",
@@ -64,7 +61,6 @@ const Courses = () => {
       title: "Trinity/ABRSM/LSME Exam Preparation",
       duration: "Flexible",
       level: "All Levels",
-      price: "₹15,000/month",
       description: "Specialized preparation for international piano examinations with proven success rates.",
       features: [
         "Grade-specific syllabus",
@@ -180,9 +176,6 @@ const Courses = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-2xl  text-piano-gold">{course.price}</span>
-                    </div>
                     <Button variant="gold">
                       Enroll Now
                     </Button>
