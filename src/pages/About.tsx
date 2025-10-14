@@ -23,21 +23,20 @@ const About = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
 
         <div className="container mx-auto px-40 h-full flex flex-col justify-center items-start text-left relative z-10 space-y-4">
-          <p
-            className={`text-xl md:text-xl text-white max-w-2xl font-light leading-relaxed tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-            style={{ transitionDelay: "100ms" }}
-          >
-            THE MUSIC IS THE BLISS
-          </p>
-
           <h1
             className={`font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-            style={{ transitionDelay: "300ms" }}
+            style={{ transitionDelay: "100ms" }}
           >
             About Us
           </h1>
+          <p
+            className={`text-xl md:text-xl text-white max-w-2xl font-light leading-relaxed tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            style={{ transitionDelay: "300ms" }}
+          >
+            THE MUSIC IS THE BLISS
+          </p>
         </div>
       </section>
 
