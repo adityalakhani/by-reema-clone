@@ -28,7 +28,7 @@ const About = () => {
               }`}
             style={{ transitionDelay: "100ms" }}
           >
-            About Us
+            About Us  
           </h1>
           <p
             className={`text-xl md:text-xl text-white max-w-2xl font-light leading-relaxed tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -92,6 +92,7 @@ const About = () => {
                     src={ReemaGupta}
                     alt="Reema Gupta"
                     className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-lg"
+                    loading="lazy"
                   />
 
                   {/* Text */}

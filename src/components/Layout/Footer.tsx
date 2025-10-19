@@ -13,7 +13,7 @@ const Footer = () => {
           {/* About Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Raama Music School Logo" className="w-12 h-12 rounded-full bg-white p-1" />
+              <img src={logo} alt="Raama Music School Logo" className="w-12 h-12 rounded-full bg-white p-1" loading="lazy"/>
               <h3 className="font-serif text-xl text-white">Raama Music School</h3>
             </div>
             <p className="text-[15px] leading-relaxed">

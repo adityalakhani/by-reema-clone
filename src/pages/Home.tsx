@@ -357,6 +357,7 @@ const Home = () => {
                   src={carousel_four}
                   alt="Lesson photo"
                   className="shadow-lg object-cover w-full h-[400px]"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -367,11 +368,13 @@ const Home = () => {
                 src={carousel_six}
                 alt="Recital photo"
                 className="shadow-lg object-cover w-[900px] h-[500px]"
+                loading="lazy"
               />
               <img
                 src={carousel_three}
                 alt="Student practice"
                 className="shadow-lg object-cover w-[700px] h-[500px]"
+                loading="lazy"
               />
             </div>
           </div>
@@ -387,6 +390,7 @@ const Home = () => {
               src={collage_one}
               alt="Piano recital"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
@@ -415,6 +419,7 @@ const Home = () => {
               src={collage_two}
               alt="Piano event"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
           </div>
@@ -425,6 +430,7 @@ const Home = () => {
               src={collage_three}
               alt="Music performance"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
@@ -453,6 +459,7 @@ const Home = () => {
               src={collage_four}
               alt="Music education India"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-12 text-white">

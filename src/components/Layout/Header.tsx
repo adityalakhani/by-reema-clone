@@ -45,6 +45,7 @@ const Header = () => {
                 src={logo} 
                 alt="Raama Music School Logo" 
                 className="w-full h-full object-contain p-1 scale-125"
+                loading="lazy"
               />
             </div>
             <div>
