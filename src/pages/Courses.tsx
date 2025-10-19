@@ -82,49 +82,46 @@ const Courses = () => {
     "Lifetime musical foundation"
   ];
 
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setAnimate(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
       <section
-        className="py-20 bg-gradient-warm h-[600px] w-full"
+        className="relative py-20 bg-cover bg-center h-[600px] w-full" // Changed to bg-cover and bg-center, added relative
         style={{ backgroundImage: `url(${bg_one})` }}
       >
-        <div className="container mx-auto px-40 h-full flex flex-col justify-center items-start text-left relative z-10 space-y-4">
-          {/* Animation trigger on mount */}
-          {(() => {
-            const [showHero, setShowHero] = useState(false);
+        {/* Overlay for darkening effect */}
+        <div className="absolute inset-0 bg-black opacity-40"></div> {/* Adjust opacity as needed */}
 
-            useEffect(() => {
-              const timer = setTimeout(() => setShowHero(true), 100);
-              return () => clearTimeout(timer);
-            }, []);
-
-            return (
-              <>
-                <h1
-                  className={`
+        <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
+          <h1
+            className={`
               font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 tracking-[6px]
               transition-all duration-1000
-              ${showHero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+              ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
             `}
-                  style={{ transitionDelay: "100ms" }}
-                >
-                  Our Courses
-                </h1>
+            style={{ transitionDelay: "100ms" }}
+          >
+            Our Courses
+          </h1>
 
-                <p
-                  className={`
+          <p
+            className={`
               text-xl md:text-xl text-white max-w-2xl font-light leading-relaxed tracking-[6px]
               transition-all duration-1000
-              ${showHero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+              ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
             `}
-                  style={{ transitionDelay: "300ms" }}
-                >
-                  Unlock your musical potential with Raama Music School's comprehensive piano courses designed for all skill levels
-                </p>
-              </>
-            );
-          })()}
+            style={{ transitionDelay: "300ms" }}
+          >
+            Unlock your musical potential with Raama Music School's comprehensive piano courses designed for all skill levels
+          </p>
         </div>
       </section>
 

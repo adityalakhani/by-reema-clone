@@ -3,21 +3,41 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import bg_one from "@/assets/69.jpg";
+import bg_one from "@/assets/100.jpg";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
+
+  const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+      const timer = setTimeout(() => setAnimate(true), 100);
+      return () => clearTimeout(timer);
+    }, []);
+
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm h-[600px] w-full"
+      <section className="relative py-20 bg-cover bg-center h-[600px] w-full" // Added 'relative' to the section
         style={{ backgroundImage: `url(${bg_one})` }}
       >
+        {/* Overlay for darkening effect */}
+        <div className="absolute inset-0 bg-black opacity-40"></div> {/* Adjust opacity as needed */}
+
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
-          <h1 className="font-serif text-5xl md:text-6xl text-white mb-6 animate-fade-in-up">
+          <h1
+            className={`font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            style={{ transitionDelay: "100ms" }}
+          >
             Contact Us
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delayed-animation leading-relaxed">
-            Ready to begin your musical journey? Get in touch with us today!
+          <p
+            className={`text-xl md:text-xl text-white max-w-2xl font-light leading-relaxed tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            style={{ transitionDelay: "300ms" }}
+          >
+          Ready to begin your musical journey? Get in touch with us today!
           </p>
         </div>
       </section>
@@ -75,7 +95,7 @@ const Contact = () => {
                       />
                     </div>
                     <Button variant="gold" size="lg" className="
-                    relative overflow-hidden text-white bg-[#ab8a62] 
+                    relative overflow-hidden text-white bg-[#ab8a62]
                     px-[22px] py-[13px] text-[15px] tracking-[3px]
                     transition-all duration-700 ease-in-out transform
                     hover:bg-white hover:text-[#ab8a62] hover:scale-110
