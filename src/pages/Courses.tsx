@@ -12,7 +12,6 @@ import {
   Star,
   CheckCircle
 } from "lucide-react";
-
 const Courses = () => {
   const courses = [
     {
@@ -72,7 +71,6 @@ const Courses = () => {
       icon: Star
     }
   ];
-
   const benefits = [
     "Individual attention for every student",
     "Flexible scheduling options",
@@ -81,25 +79,27 @@ const Courses = () => {
     "International exam preparation",
     "Lifetime musical foundation"
   ];
-
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimate(true), 100);
     return () => clearTimeout(timer);
   }, []);
-
-
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section
-        className="relative py-20 bg-cover bg-center h-[600px] w-full" // Changed to bg-cover and bg-center, added relative
-        style={{ backgroundImage: `url(${bg_one})` }}
-      >
-        {/* Overlay for darkening effect */}
-        <div className="absolute inset-0 bg-black opacity-40"></div> {/* Adjust opacity as needed */}
+      <section className="relative h-[500px] sm:h-[600px] w-full overflow-hidden">
+        {/* Replace background-image with <img> */}
+        <img
+          src={bg_one}
+          alt="Raama Music School Hero"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_center]" // Adjust this value to center subject better
+        />
 
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-50 sm:opacity-40"></div>
+
+        {/* Hero Content */}
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
           <h1
             className={`

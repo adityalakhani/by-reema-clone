@@ -45,7 +45,7 @@ const FAQ = () => {
     },
     {
       question: "Can adults learn to play the piano?",
-      answer: "Absolutely! It's never too late to learn. We have many adult students who are successfully learning to play the piano for the first time or returning to it after many years."
+      answer: "Absolutely! It's never too late to learn. We have many adult students who are successfully learning to play the piano for the time or returning to it after many years."
     },
     {
       question: "What are your fees and payment options?",
@@ -61,7 +61,7 @@ const FAQ = () => {
         style={{ backgroundImage: `url(${bg_one})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-        <div className="container mx-auto px-40 h-full flex flex-col justify-center items-start text-left relative z-10 space-y-4">
+        <div className="container mx-auto px-4 sm:px-8 md:px-12 h-full flex flex-col justify-center items-start text-left relative z-10 space-y-4">
           <h1 className={`font-serif text-5xl md:text-6xl text-piano-gold mb-6 transition-all duration-1000 ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '100ms' }}>
             Frequently Asked Questions
           </h1>

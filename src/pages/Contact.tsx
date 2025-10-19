@@ -5,20 +5,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import bg_one from "@/assets/100.jpg";
 import { useEffect, useState } from "react";
-
 const Contact = () => {
 
   const [animate, setAnimate] = useState(false);
-
-    useEffect(() => {
+  useEffect(() => {
       const timer = setTimeout(() => setAnimate(true), 100);
       return () => clearTimeout(timer);
     }, []);
-
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative py-20 bg-cover bg-center h-[600px] w-full" // Added 'relative' to the section
+      <section className="relative bg-cover bg-top sm:bg-center h-[500px] sm:h-[600px] w-full"
         style={{ backgroundImage: `url(${bg_one})` }}
       >
         {/* Overlay for darkening effect */}
@@ -228,7 +225,7 @@ const Contact = () => {
               <CardContent className="p-0">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3501.3826157654744!2d77.1185056!3d28.667486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDQwJzAzLjAiTiA3N8KwMDcnMTUuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
-                  width="1000"
+                  width="100%"
                   height="400"
                   style={{ border: 0 }}
                   loading="lazy"

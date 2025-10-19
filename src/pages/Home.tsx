@@ -127,7 +127,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Carousel Section */}
       <section className="relative h-screen w-full overflow-hidden">
         {/* Contact Info Sidebar - Left Side with scroll behavior */}
@@ -219,7 +219,7 @@ const Home = () => {
               className="relative h-full w-full flex-shrink-0"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-[1000ms] ease-out"
+                className="absolute inset-0 bg-cover bg-top sm:bg-center transition-transform duration-[1000ms] ease-out"
                 // This Ken Burns effect on the background is great, we can keep it.
                 style={{
                   backgroundImage: `url(${slide.bgImage})`,
@@ -295,7 +295,7 @@ const Home = () => {
                     before:bg-white before:origin-left before:scale-x-0
                     before:transition-transform before:duration-700
                     hover:before:scale-x-100 before:opacity-20
-                    `}
+                  `}
                     >
                       CONNECT NOW
                     </Button>
@@ -356,7 +356,7 @@ const Home = () => {
                 <img
                   src={carousel_four}
                   alt="Lesson photo"
-                  className="shadow-lg object-cover w-full h-[400px]"
+                  className="shadow-lg object-cover object-top sm:object-center w-full h-full min-h-[400px]"
                   loading="lazy"
                 />
               </div>
@@ -367,13 +367,13 @@ const Home = () => {
               <img
                 src={carousel_six}
                 alt="Recital photo"
-                className="shadow-lg object-cover w-[900px] h-[500px]"
+                className="shadow-lg object-cover object-top sm:object-center w-full h-auto md:h-[500px]"
                 loading="lazy"
               />
               <img
                 src={carousel_three}
                 alt="Student practice"
-                className="shadow-lg object-cover w-[700px] h-[500px]"
+                className="shadow-lg object-cover object-top sm:object-center w-full h-auto md:h-[500px]"
                 loading="lazy"
               />
             </div>
@@ -389,7 +389,7 @@ const Home = () => {
             <img
               src={collage_one}
               alt="Piano recital"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -418,7 +418,7 @@ const Home = () => {
             <img
               src={collage_two}
               alt="Piano event"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -429,7 +429,7 @@ const Home = () => {
             <img
               src={collage_three}
               alt="Music performance"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -458,7 +458,7 @@ const Home = () => {
             <img
               src={collage_four}
               alt="Music education India"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>

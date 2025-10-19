@@ -7,17 +7,15 @@ import { useEffect, useState } from "react";
 const About = () => {
 
   const [animate, setAnimate] = useState(false);
-
   useEffect(() => {
     const timer = setTimeout(() => setAnimate(true), 100);
     return () => clearTimeout(timer);
   }, []);
-
   return (
     <div className="min-h-screen ">
       {/* Hero Section with Background Image */}
       <section
-        className="relative h-[500px] w-full bg-cover bg-center bg-no-repeat overflow-hidden"
+        className="relative h-[500px] w-full bg-cover bg-top sm:bg-center bg-no-repeat overflow-hidden"
         style={{ backgroundImage: `url(${bg_one})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
@@ -71,7 +69,7 @@ const About = () => {
 
       {/* About Reema Gupta Section with Background */}
       <section
-        className="relative py-32 bg-cover bg-center bg-fixed"
+        className="relative py-32 bg-cover bg-top sm:bg-center bg-fixed"
         style={{
           backgroundImage: `url(${bg_one})`,
           backgroundAttachment: 'fixed'
@@ -91,7 +89,7 @@ const About = () => {
                   <img
                     src={ReemaGupta}
                     alt="Reema Gupta"
-                    className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-lg"
+                    className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-top shadow-lg"
                     loading="lazy"
                   />
 
