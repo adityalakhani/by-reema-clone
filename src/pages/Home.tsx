@@ -167,17 +167,29 @@ const Home = () => {
               <div className="group cursor-pointer">
                 <div className="flex items-start gap-3">
                   <div className="mt-1">
-                    <Mail className="w-5 h-5 text-piano-gold group-hover:scale-110 transition-transform" />
+                    {/* Embedded WhatsApp Icon */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5 text-piano-gold group-hover:scale-110 transition-transform"
+                    >
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.74.45 3.37 1.25 4.85L2 22l5.25-1.38c1.4.75 3 .17 4.79 1.17c5.46 0 9.91-4.45 9.91-9.91c0-5.55-4.45-9.91-9.91-9.91ZM17.2 15.6c-.18-.3-.36-.45-.6-.75s-.45-.3-.7-.3c-.27 0-.5.1-.7.3c-.24.2-.8 1-.98 1.2c-.18.2-.36.22-.66.12c-.3-.1-.13-.16-2.5-1.5c-1.84-1.04-3.04-2.18-3.55-2.58c-.1-.1-.18-.18-.18-.36s0-.27.12-.36c.1-.1.2-.12.3-.18c.1-.06.17-.12.24-.18c.08-.07.12-.12.18-.2a.6.6 0 0 0 .06-.54C10 9 9.22 7.14 9 6.7c-.2-.45-.4-.4-.54-.4c-.14 0-.3-.02-.44-.02c-.15 0-.36.06-.54.3c-.18.24-.7 1-.9 1.6c-.25.6-.4 1.2-.4 1.8c0 .6.15 1.18.3 1.7c.07.24 1.5 2.5 3.6 4.5c2.1 2 3.8 2.7 4.3 3c.5.3 1 .48 1.4.6c.4.1.75.04 1-.2c.27-.24.7-.8.9-1.1s.4-.5.3-.8c-.1-.3-.27-.4-.4-.5Z" />
+                    </svg>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-piano-cream/60 font-sans mb-1">
-                      Email
+                      WhatsApp
                     </p>
                     <a
-                      href="mailto:raamamusic2025@gmail.com"
-                      className="text-[15px] font-normal hover:text-piano-gold transition-colors block leading-tight break-all"
+                      href="https://wa.me/917827444093?text=Hi%2C%20I'd%20like%20to%20learn%20more%20about%20Raama%20Music%20School."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[15px] font-normal hover:text-piano-gold transition-colors block leading-tight"
                     >
-                      raamamusic2025@gmail.com
+                      +91 7827444093
                     </a>
                   </div>
                 </div>
