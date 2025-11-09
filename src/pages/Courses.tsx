@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import bg_one from "@/assets/IMG_9613.jpg";
 import { useEffect, useState } from "react";
+import { ContactPopup } from "@/components/ui/contactpopup";
 import {
   Users,
   Clock,
@@ -80,6 +81,8 @@ const Courses = () => {
     "Lifetime musical foundation"
   ];
   const [animate, setAnimate] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimate(true), 100);
@@ -87,6 +90,11 @@ const Courses = () => {
   }, []);
   return (
     <div className="min-h-screen ">
+      <ContactPopup
+        open={isPopupOpen}
+        onOpenChange={setIsPopupOpen}
+        whatsappMessage={popupMessage}
+      />
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] w-full overflow-hidden">
         {/* Replace background-image with <img> */}
@@ -173,7 +181,13 @@ const Courses = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <Button variant="gold">
+                    <Button
+                      variant="gold"
+                      onClick={() => {
+                        setPopupMessage(`Hi, I'm interested in enrolling in the ${course.title}.`);
+                        setIsPopupOpen(true);
+                      }}
+                    >
                       Enroll Now
                     </Button>
                   </div>
@@ -253,11 +267,20 @@ const Courses = () => {
             Join hundreds of satisfied students who have discovered their musical potential with Reema Gupta's expert guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="gold" size="xl">
+            <Button
+              variant="gold"
+              size="xl"
+              onClick={() => {
+                setPopupMessage("Hi, I'd like to book a free trial lesson.");
+                setIsPopupOpen(true);
+              }}
+            >
               Book Free Trial Lesson
             </Button>
-            <Button variant="hero" size="xl">
-              Call Now: +91 7827444093
+            <Button variant="hero" size="xl" asChild>
+              <a href="tel:+917827444093">
+                Call Now: +91 7827444093
+              </a>
             </Button>
           </div>
         </div>

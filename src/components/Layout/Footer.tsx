@@ -13,7 +13,7 @@ const Footer = () => {
           {/* About Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Raama Music School Logo" className="w-12 h-12 rounded-full bg-white p-1" loading="lazy"/>
+              <img src={logo} alt="Raama Music School Logo" className="w-12 h-12 rounded-full bg-white p-1" loading="lazy" />
               <h3 className="font-serif text-xl text-white">Raama Music School</h3>
             </div>
             <p className="text-[15px] leading-relaxed">
@@ -39,8 +39,16 @@ const Footer = () => {
             <h4 className="font-serif text-xl text-white mb-4">Contact Info</h4>
             <ul className="space-y-4 text-[15px]">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-piano-gold mt-1 flex-shrink-0" />
-                <span>9/13, Punjabi Bagh West, New Delhi, India</span>
+                <a
+                  href="https://maps.app.goo.gl/2uKEHSW9kqQgFPBZA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-piano-gold transition-colors"
+                >
+                  <MapPin className="w-5 h-5 text-piano-gold mt-1 flex-shrink-0" />
+                  <span>9/13, Punjabi Bagh West,
+                    New Delhi, India</span>
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-piano-gold mt-1 flex-shrink-0" />
@@ -59,7 +67,7 @@ const Footer = () => {
             <p className="text-[15px]">Stay connected with us on social media for the latest updates and musical inspiration.</p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-piano-gold hover:text-piano-dark transition-all duration-300"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-piano-gold hover:text-piano-dark transition-all duration-300"><Instagram className="w-5 h-5" /></a>
+              <a href="https://www.instagram.com/raamamusicschool/" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-piano-gold hover:text-piano-dark transition-all duration-300"><Instagram className="w-5 h-5" /></a>
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-piano-gold hover:text-piano-dark transition-all duration-300"><Youtube className="w-5 h-5" /></a>
             </div>
           </div>

@@ -3,17 +3,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { ContactPopup } from "@/components/ui/contactpopup";
 import bg_one from "@/assets/100.jpg";
 import { useEffect, useState } from "react";
 const Contact = () => {
 
   const [animate, setAnimate] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
   useEffect(() => {
-      const timer = setTimeout(() => setAnimate(true), 100);
-      return () => clearTimeout(timer);
-    }, []);
+    const timer = setTimeout(() => setAnimate(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="min-h-screen ">
+      <ContactPopup
+        open={isPopupOpen}
+        onOpenChange={setIsPopupOpen}
+        whatsappMessage={popupMessage}
+      />
       {/* Hero Section */}
       <section className="relative bg-cover bg-top sm:bg-center h-[500px] sm:h-[600px] w-full"
         style={{ backgroundImage: `url(${bg_one})` }}
@@ -34,7 +42,7 @@ const Contact = () => {
               }`}
             style={{ transitionDelay: "300ms" }}
           >
-          Ready to begin your musical journey? Get in touch with us today!
+            Ready to begin your musical journey? Get in touch with us today!
           </p>
         </div>
       </section>
@@ -101,7 +109,12 @@ const Contact = () => {
                     before:bg-white before:origin-left before:scale-x-0
                     before:transition-transform before:duration-700
                     hover:before:scale-x-100 before:opacity-20
-                    ">
+                    "
+                      onClick={(e) => {
+                        e.preventDefault(); // Stop the form from trying to submit
+                        setPopupMessage("Hi, I have a question from your website contact form.");
+                        setIsPopupOpen(true);
+                      }}>
                       Send Message
                     </Button>
                   </form>
@@ -162,7 +175,7 @@ const Contact = () => {
                 <Card className="p-6 hover:shadow-2xl transition-shadow">
                   <CardContent className="p-0">
                     <a
-                      href="https://www.google.com/maps/place/28%C2%B040'03.0%22N+77%C2%B007'15.9%22E/@28.667486,77.1185056,17z"
+                      href="https://maps.app.goo.gl/2uKEHSW9kqQgFPBZA"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start space-x-4 group"
@@ -224,7 +237,7 @@ const Contact = () => {
             <Card className="overflow-hidden shadow-2xl">
               <CardContent className="p-0">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3501.3826157654744!2d77.1185056!3d28.667486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDQwJzAzLjAiTiA3N8KwMDcnMTUuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.7398897339453!2d77.11848327524969!3d28.667505982492084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03ebe39b9d4b%3A0x83bff3eec20a4b05!2sRaama%20Music%20School!5e0!3m2!1sen!2sin!4v1762706415139!5m2!1sen!2sin"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Users, Award, Heart, Music, BookOpen, Phone, Mail, MapPin } from 'lucide-react';
+import { ContactPopup } from "@/components/ui/contactpopup";
 import carousel_one from "@/assets/IMG_9591.jpg";
 import carousel_two from "@/assets/20.jpg";
 import carousel_three from "@/assets/62.jpg";
@@ -17,6 +18,8 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const carouselSlides = [
     {
@@ -128,6 +131,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <ContactPopup
+        open={isPopupOpen}
+        onOpenChange={setIsPopupOpen}
+        whatsappMessage={popupMessage}
+      />
       {/* Hero Carousel Section */}
       <section className="relative h-screen w-full overflow-hidden">
         {/* Contact Info Sidebar - Left Side with scroll behavior */}
@@ -179,7 +187,7 @@ const Home = () => {
 
               <div className="group cursor-pointer">
                 <a
-                  href="https://www.google.com/maps/place/28%C2%B040'03.0%22N+77%C2%B007'15.9%22E/@28.667486,77.1185056,17z"
+                  href="https://maps.app.goo.gl/2uKEHSW9kqQgFPBZA"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3"
@@ -296,6 +304,10 @@ const Home = () => {
                     before:transition-transform before:duration-700
                     hover:before:scale-x-100 before:opacity-20
                   `}
+                      onClick={() => {
+                        setPopupMessage("Hi, I'd like to learn more about Raama Music School.");
+                        setIsPopupOpen(true);
+                      }}
                     >
                       CONNECT NOW
                     </Button>
@@ -407,7 +419,11 @@ const Home = () => {
                     before:content-[''] before:absolute before:inset-0
                     before:bg-white before:origin-left before:scale-x-0
                     before:transition-transform before:duration-700
-                    hover:before:scale-x-100 before:opacity-20">
+                    hover:before:scale-x-100 before:opacity-20"
+                onClick={() => {
+                  setPopupMessage("Hi, I'd like to learn more about Raama Music School.");
+                  setIsPopupOpen(true);
+                }}>
                 LEARN MORE
               </Button>
             </div>
@@ -447,7 +463,11 @@ const Home = () => {
                     before:content-[''] before:absolute before:inset-0
                     before:bg-white before:origin-left before:scale-x-0
                     before:transition-transform before:duration-700
-                    hover:before:scale-x-100 before:opacity-20">
+                    hover:before:scale-x-100 before:opacity-20"
+                onClick={() => {
+                  setPopupMessage("Hi, I'd like to learn more about Raama Music School.");
+                  setIsPopupOpen(true);
+                }}>
                 LEARN MORE
               </Button>
             </div>
@@ -476,7 +496,11 @@ const Home = () => {
                     before:content-[''] before:absolute before:inset-0
                     before:bg-white before:origin-left before:scale-x-0
                     before:transition-transform before:duration-700
-                    hover:before:scale-x-100 before:opacity-20">
+                    hover:before:scale-x-100 before:opacity-20"
+                onClick={() => {
+                  setPopupMessage("Hi, I'd like to learn more about Raama Music School.");
+                  setIsPopupOpen(true);
+                }}>
                 LEARN MORE
               </Button>
             </div>
@@ -582,6 +606,10 @@ const Home = () => {
                     before:bg-white before:origin-left before:scale-x-0
                     before:transition-transform before:duration-700
                     hover:before:scale-x-100 before:opacity-20"
+            onClick={() => {
+              setPopupMessage("Hi, I'd like to learn more about Raama Music School.");
+              setIsPopupOpen(true);
+            }}
           >
             Book Your Lesson Today
           </Button>
