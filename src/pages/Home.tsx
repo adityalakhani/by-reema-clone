@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Users, Award, Heart, Music, BookOpen, Phone, Mail, MapPin } from 'lucide-react';
@@ -20,6 +21,49 @@ const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
+  const isMobile = useIsMobile();
+  
+  // Touch state for swipe detection
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null); // Reset touch end
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Next slide
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    }
+    if (isRightSwipe) {
+      // Previous slide (handle negative modulo)
+      setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+    }
+  };
+
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setTimeout(() => {
+        setIsPopupOpen(true);
+      }, 1500); // Opens after 1.5 seconds for a smooth effect
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
 
   const carouselSlides = [
     {
@@ -121,7 +165,7 @@ const Home = () => {
     }, 6000);
 
     return () => clearInterval(timer);
-  }, [isAutoPlaying, carouselSlides.length]);
+  }, [isAutoPlaying, carouselSlides.length, currentSlide]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -137,7 +181,12 @@ const Home = () => {
         whatsappMessage={popupMessage}
       />
       {/* Hero Carousel Section */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section
+        className="relative h-screen w-full overflow-hidden"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {/* Contact Info Sidebar - Left Side with scroll behavior */}
         <div className={`fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:block transition-all duration-1000 ease-in-out ${isScrolled ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'
           }`}>

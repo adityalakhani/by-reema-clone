@@ -34,7 +34,7 @@ const WhatsAppIcon = () => (
 const phoneNumber = "+917827444093";
 const whatsappNumber = "917827444093"; // Number without '+' for WhatsApp link
 const mapLink = "https://maps.app.goo.gl/2uKEHSW9kqQgFPBZA";
-const emailAddress = "raamamusic2025@gmail.com"; 
+const emailAddress = "raamamusic2025@gmail.com";
 
 // --- Time Logic ---
 // Your new hours: 11 AM to 9 PM (21:00), every day.
@@ -61,16 +61,21 @@ export const ContactPopup = ({
   // Recalculate the open status every time the popup is opened
   useEffect(() => {
     if (open) {
-      setStatus(getBusinessHoursStatus());
+      // If no specific message is passed (auto-popup), force open status
+      if (!whatsappMessage) {
+        setStatus({ isOpen: true });
+      } else {
+        setStatus(getBusinessHoursStatus());
+      }
     }
-  }, [open]);
+  }, [open, whatsappMessage]);
 
   const encodedMessage = encodeURIComponent(whatsappMessage);
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-piano-cream border-piano-gold">
+      <DialogContent className="w-[90%] rounded-xl sm:w-full sm:max-w-md bg-piano-cream border-piano-gold">
         <div className="flex justify-center -mt-16">
           <img
             src={logo}
@@ -81,12 +86,16 @@ export const ContactPopup = ({
         </div>
         <DialogHeader className="text-center pt-2">
           <DialogTitle className="font-serif text-2xl text-piano-dark">
-            {status.isOpen ? "We're Here to Help!" : "We're Currently Closed"}
+            {!whatsappMessage
+              ? "Get in Touch"
+              : (status.isOpen ? "We're Here to Help!" : "We're Currently Closed")}
           </DialogTitle>
           <DialogDescription className="text-piano-dark/80">
-            {status.isOpen
-              ? "How would you like to contact us?"
-              : "We'll get back to you as soon as we open at 11 AM."}
+            {!whatsappMessage
+              ? "Choose your preferred method to contact us"
+              : (status.isOpen
+                ? "How would you like to contact us?"
+                : "We'll get back to you as soon as we open at 11 AM.")}
           </DialogDescription>
         </DialogHeader>
 
