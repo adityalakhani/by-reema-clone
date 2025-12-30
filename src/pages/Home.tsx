@@ -121,23 +121,23 @@ const Home = () => {
 
   const reviews = [
     {
-      name: "Raman",
-      text: "Raama Music School offers top-notch piano instruction. The instructor is experienced and patient.",
+      name: "Saanvi",
+      text: "Have been taking classes from Reema ma’am for more than 2 years now, and it’s been a great experience. She’s an excellent teacher with commendable skills",
       rating: 5
     },
     {
-      name: "Nisha Sethi",
-      text: "My child's piano skills have improved tremendously thanks to Raama Music School's excellent teaching methods.",
+      name: "Kannika Jain",
+      text: "Incredible Teacher, beautiful enviroment. Reema ma'am has been teaching piano to my son for almost 3 yrs. She has beautiful energies, so patient & kind hearted.",
       rating: 5
     },
     {
-      name: "Komal",
-      text: "A great place for music lovers. Highly recommended for anyone looking to learn piano.",
+      name: "Isha Kapila",
+      text: "Reema mam is an absolute delight for her students. Wonderful teacher.. my daughter looks forward to her weekly classes and enjoys learning! Grateful we found her!",
       rating: 5
     },
     {
-      name: "Priyanka",
-      text: "The personalized lessons really helped me progress at my own pace. Thank you, Raama Music School!",
+      name: "Neha Anand",
+      text: "Excellent and dedicated teachers. Keep up the good work!",
       rating: 5
     }
   ];
