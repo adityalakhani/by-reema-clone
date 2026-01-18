@@ -22,7 +22,7 @@ const About = () => {
 
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
           <h1
-            className={`font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            className={`font-serif text-5xl md:text-6xl text-piano-gold mb-6 tracking-[6px] transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             style={{ transitionDelay: "100ms" }}
           >

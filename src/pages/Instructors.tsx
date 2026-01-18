@@ -79,7 +79,7 @@ const Instructors = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
           <h1
-            className={`font-serif text-5xl md:text-6xl text-[#ff6363] mb-6 tracking-[6px] transition-all duration-1000 ${
+            className={`font-serif text-5xl md:text-6xl text-piano-gold mb-6 tracking-[6px] transition-all duration-1000 ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{ transitionDelay: "100ms" }}
@@ -128,8 +128,8 @@ const Instructors = () => {
                           className="w-full h-full object-cover object-top"
                           loading="lazy"
                         />
-                        <div className="absolute top-4 left-4 bg-piano-gold text-white px-3 py-1.5 rounded-lg shadow-lg">
-                          <p className="font-serif text-xs">{instructor.instrument}</p>
+                        <div className="absolute top-4 left-4 bg-piano-dark text-piano-gold px-4 py-2.5 rounded-lg shadow-lg border-2 border-piano-gold">
+                          <p className="font-serif text-base font-semibold">{instructor.instrument}</p>
                         </div>
                       </div>
                     </div>
