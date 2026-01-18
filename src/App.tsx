@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
+import Instructors from "./pages/Instructors";
 import FAQ from "./pages/faq";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/instructors" element={<Instructors />} />
               <Route path="/faq" element={<FAQ />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
